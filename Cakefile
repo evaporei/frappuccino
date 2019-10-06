@@ -26,4 +26,4 @@ task tasks.build.name, tasks.build.description, ->
 
 task tasks.test.name, tasks.test.description, ->
   printDescriptionAndCommand tasks.test.name
-  spawn tasks.test.command, stdio: 'inherit'
+  spawn tasks.test.command, tasks.test.args, stdio: 'inherit'
