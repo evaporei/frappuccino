@@ -20,10 +20,9 @@ printDescriptionAndCommand = (taskName) ->
   fullCommand = tasks[taskName].command + ' ' + tasks[taskName].args.join(' ')
   console.log beautifyCommand fullCommand
 
-task tasks.build.name, tasks.build.description, ->
-  printDescriptionAndCommand tasks.build.name
-  spawn tasks.build.command, tasks.build.args, stdio: 'inherit'
+setupTasks = (taskObj) ->
+  task taskObj.name, taskObj.description, ->
+    printDescriptionAndCommand taskObj.name
+    spawn taskObj.command, taskObj.args, stdio: 'inherit'
 
-task tasks.test.name, tasks.test.description, ->
-  printDescriptionAndCommand tasks.test.name
-  spawn tasks.test.command, tasks.test.args, stdio: 'inherit'
+setupTasks obj for name, obj of tasks
