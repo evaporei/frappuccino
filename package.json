@@ -1,0 +1,24 @@
+{
+  "name": "frappuccino",
+  "version": "1.0.0",
+  "description": "Promise library with coffee, ice and sugar",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/otaviopace/frappuccino.git"
+  },
+  "keywords": [
+    "promise",
+    "frappuccino",
+    "coffeescript"
+  ],
+  "author": "otaviopace",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/otaviopace/frappuccino/issues"
+  },
+  "homepage": "https://github.com/otaviopace/frappuccino#readme"
+}
