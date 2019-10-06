@@ -3,7 +3,7 @@
 tasks =
   build:
     name: 'build'
-    description: 'Build project from src/*.coffee to lib/*js'
+    description: 'Build project from src/*.coffee to lib/*.js'
     command: 'coffee'
     args: ['--compile', '--output', 'lib/', 'src/']
   test:
