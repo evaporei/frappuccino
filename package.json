@@ -5,7 +5,7 @@
   "main": "lib/index.js",
   "scripts": {
     "build": "coffee --compile --output lib/ src/",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -21,8 +21,13 @@
   "bugs": {
     "url": "https://github.com/otaviopace/frappuccino/issues"
   },
+  "jest": {
+    "preset": "jest-preset-coffeescript"
+  },
   "homepage": "https://github.com/otaviopace/frappuccino#readme",
   "devDependencies": {
-    "coffeescript": "^2.4.1"
+    "coffeescript": "^2.4.1",
+    "jest": "^24.9.0",
+    "jest-preset-coffeescript": "^1.1.1"
   }
 }

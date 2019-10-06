@@ -1,1 +1,3 @@
-num = 42
+sum = (a, b) -> a + b
+
+module.exports.sum = sum
