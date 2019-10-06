@@ -5,7 +5,7 @@
   "main": "lib/index.js",
   "scripts": {
     "build": "cake build",
-    "test": "jest"
+    "test": "cake test"
   },
   "repository": {
     "type": "git",
