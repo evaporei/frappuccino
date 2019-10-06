@@ -15,14 +15,14 @@ tasks =
     command: 'jest'
     args: []
 
-printDescriptionAndCommand = (taskName) ->
-  console.log tasks[taskName].description
-  fullCommand = tasks[taskName].command + ' ' + tasks[taskName].args.join(' ')
+printDescriptionAndCommand = (taskObj) ->
+  console.log taskObj.description
+  fullCommand = taskObj.command + ' ' + taskObj.args.join(' ')
   console.log beautifyCommand fullCommand
 
 setupTasks = (taskObj) ->
   task taskObj.name, taskObj.description, ->
-    printDescriptionAndCommand taskObj.name
+    printDescriptionAndCommand taskObj
     spawn taskObj.command, taskObj.args, stdio: 'inherit'
 
 setupTasks obj for name, obj of tasks
