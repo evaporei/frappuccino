@@ -22,11 +22,8 @@ printDescriptionAndCommand = (taskName) ->
 
 task tasks.build.name, tasks.build.description, ->
   printDescriptionAndCommand tasks.build.name
-  spawn tasks.build.command, tasks.build.args, stdio: 'inherit', (err, stdout, stderr) ->
-    throw err if err
-    console.log stdout + stderr
+  spawn tasks.build.command, tasks.build.args, stdio: 'inherit'
 
 task tasks.test.name, tasks.test.description, ->
   printDescriptionAndCommand tasks.test.name
-  spawn tasks.test.command, stdio: 'inherit', (err, stdout, stderr) ->
-    throw err if err
+  spawn tasks.test.command, stdio: 'inherit'
