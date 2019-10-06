@@ -1,8 +1,5 @@
 { spawn } = require 'child_process'
 
-beautifyCommand = (command) ->
-  '\n> ' + command
-
 tasks =
   build:
     name: 'build'
@@ -14,6 +11,9 @@ tasks =
     description: 'Run test files on /tests folder'
     command: 'jest'
     args: []
+
+beautifyCommand = (command) ->
+  '\n> ' + command
 
 printDescriptionAndCommand = (taskObj) ->
   console.log taskObj.description
