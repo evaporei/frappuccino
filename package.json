@@ -2,8 +2,9 @@
   "name": "frappuccino",
   "version": "1.0.0",
   "description": "Promise library with coffee, ice and sugar",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
+    "build": "coffee --compile --output lib/ src/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/otaviopace/frappuccino/issues"
   },
-  "homepage": "https://github.com/otaviopace/frappuccino#readme"
+  "homepage": "https://github.com/otaviopace/frappuccino#readme",
+  "devDependencies": {
+    "coffeescript": "^2.4.1"
+  }
 }
