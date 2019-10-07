@@ -5,7 +5,8 @@
   "main": "lib/index.js",
   "scripts": {
     "build": "cake build",
-    "test": "cake test"
+    "test": "cake test",
+    "test:watch": "jest --watchAll"
   },
   "repository": {
     "type": "git",
