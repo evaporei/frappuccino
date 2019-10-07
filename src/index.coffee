@@ -18,4 +18,7 @@ class Promise
     @state = REJECTED
     @value = reason
 
+  then: (onFulfilled, onRejected) ->
+    (if @state == FULFILLED then onFulfilled else onRejected) @value
+
 module.exports = Promise
