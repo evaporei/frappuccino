@@ -32,14 +32,23 @@ class Promise
   finale: ->
     @handle callbacks for callbacks in @queue
 
-  handle: ({ onFulfilled, onRejected }) ->
-    (if @state is FULFILLED then onFulfilled else onRejected) @value
+  handle: ({ promise, onFulfilled, onRejected }) ->
+    cb = (if @state is FULFILLED then onFulfilled else onRejected)
+    try
+      value = cb @value
+      promise.fulfill value
+    catch error
+      promise.reject error
 
   then: (onFulfilled, onRejected) ->
-    callbacks = { onFulfilled, onRejected }
+    promise = new Promise ->
+    data = { promise, onFulfilled, onRejected }
+
     if @state is PENDING
-      @queue.push callbacks
+      @queue.push data
     else
-      @handle callbacks
+      @handle data
+
+    promise
 
 module.exports = Promise
