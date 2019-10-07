@@ -9,7 +9,10 @@ class Promise
     @doResolve executor
 
   doResolve: (executor) ->
-    executor @fulfill, @reject
+    try
+      executor @fulfill, @reject
+    catch error
+      @reject error
 
   fulfill: (value) =>
     return if @called
