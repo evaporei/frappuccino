@@ -34,6 +34,14 @@ class Promise
 
   handleResolved: ({ promise, onFulfilled, onRejected }) ->
     cb = (if @state is FULFILLED then onFulfilled else onRejected)
+
+    if typeof cb isnt 'function'
+      if @state == FULFILLED
+        promise.fulfill @value
+      else
+        promise.reject @value
+      return
+
     try
       value = cb @value
       promise.fulfill value
