@@ -30,9 +30,9 @@ class Promise
     @finale()
 
   finale: ->
-    @handle callbacks for callbacks in @queue
+    @handleResolved callbacks for callbacks in @queue
 
-  handle: ({ promise, onFulfilled, onRejected }) ->
+  handleResolved: ({ promise, onFulfilled, onRejected }) ->
     cb = (if @state is FULFILLED then onFulfilled else onRejected)
     try
       value = cb @value
@@ -47,7 +47,7 @@ class Promise
     if @state is PENDING
       @queue.push data
     else
-      @handle data
+      @handleResolved data
 
     promise
 
