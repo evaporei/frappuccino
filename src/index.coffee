@@ -54,7 +54,7 @@ class Promise
   handle: (data) ->
     promise = @
 
-    while promise.value instanceof Promise
+    while promise.state isnt REJECTED and promise.value instanceof Promise
       promise = promise.value
 
     if promise.state is PENDING
