@@ -25,6 +25,24 @@ class Promise
 
   fulfill: (value) =>
     return @reject new TypeError if value is @
+    if value and (typeof value is 'object' or typeof value is 'function')
+      try
+        thenFn = value.then
+      catch error
+        return @reject error
+
+      isPromise = thenFn is @then and @ instanceof Promise
+      
+      if isPromise
+        @state = FULFILLED
+        @value = value
+        return @finale()
+
+      isThenable = typeof thenFn is 'function'
+
+      if isThenable
+        return @doResolve thenFn.bind value
+
     @state = FULFILLED
     @value = value
     @finale()
