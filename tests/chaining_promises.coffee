@@ -20,7 +20,7 @@ test 'if .then\'s onFulfilled is called without errors it should transition to F
     expect(f1.mock.calls.length).toBe(1)
     expect(f1.mock.calls[0][0]).toBe(value)
     done()
-  ), 5
+  ), 50
 
 test 'if .then\'s onRejected is called without errors it should transition to FULFILLED', (done) ->
   value = 'ORANGE MOCHA FRAPPUCCINO!'
@@ -33,7 +33,7 @@ test 'if .then\'s onRejected is called without errors it should transition to FU
     expect(f1.mock.calls.length).toBe(1)
     expect(f1.mock.calls[0][0]).toBe(value)
     done()
-  ), 5
+  ), 50
 
 test 'if .then\'s onFulfilled is called and has an error it should transition to REJECTED', (done) ->
   reason = 'recipe failed :('
@@ -46,7 +46,7 @@ test 'if .then\'s onFulfilled is called and has an error it should transition to
     expect(f1.mock.calls.length).toBe(1)
     expect(f1.mock.calls[0][0]).toBe(reason)
     done()
-  ), 5
+  ), 50
 
 test 'if .then\'s onRejected is called and has an error it should transition to REJECTED', (done) ->
   reason = 'recipe failed :('
@@ -59,4 +59,4 @@ test 'if .then\'s onRejected is called and has an error it should transition to 
     expect(f1.mock.calls.length).toBe(1)
     expect(f1.mock.calls[0][0]).toBe(reason)
     done()
-  ), 5
+  ), 50

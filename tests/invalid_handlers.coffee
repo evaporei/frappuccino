@@ -12,7 +12,7 @@ test 'works with invalid handlers (fulfill)', (done) ->
     expect(f1.mock.calls.length).toBe 1
     expect(f1.mock.calls[0][0]).toBe value
     done()
-  ), 5
+  ), 50
 
 test 'works with invalid handlers (reject)', (done) ->
   reason = 'horrorppuccino'
@@ -26,4 +26,4 @@ test 'works with invalid handlers (reject)', (done) ->
     expect(r1.mock.calls.length).toBe 1
     expect(r1.mock.calls[0][0]).toBe reason
     done()
-  ), 5
+  ), 50

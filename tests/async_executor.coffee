@@ -9,19 +9,19 @@ test 'should queue callbacks when the promise is not fulfilled immediately', (do
 
   promise.then onFulfilled
 
+  expect(onFulfilled.mock.calls.length).toBe 0
+
   setTimeout ( ->
     expect(onFulfilled.mock.calls.length).toBe 1
     expect(onFulfilled.mock.calls[0][0]).toBe value
     promise.then onFulfilled
-  ), 5
-
-  expect(onFulfilled.mock.calls.length).toBe 0
+  ), 50
 
   setTimeout ( ->
     expect(onFulfilled.mock.calls.length).toBe 2
     expect(onFulfilled.mock.calls[1][0]).toBe value
     done()
-  ), 10
+  ), 100
 
 test 'should queue callbacks when the promise is not rejected immediately', (done) ->
   value = 'frappuccino, more like frappubad'
@@ -32,16 +32,16 @@ test 'should queue callbacks when the promise is not rejected immediately', (don
 
   promise.then null, onRejected
 
+  expect(onRejected.mock.calls.length).toBe 0
+
   setTimeout ( ->
     expect(onRejected.mock.calls.length).toBe 1
     expect(onRejected.mock.calls[0][0]).toBe value
     promise.then null, onRejected
-  ), 5
-
-  expect(onRejected.mock.calls.length).toBe 0
+  ), 50
 
   setTimeout ( ->
     expect(onRejected.mock.calls.length).toBe 2
     expect(onRejected.mock.calls[1][0]).toBe value
     done()
-  ), 10
+  ), 100

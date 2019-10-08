@@ -12,4 +12,4 @@ test 'when the executor fails, the promise should transition to the REJECTED sta
     expect(onRejected.mock.calls[0][0]).toBe reason
     expect(promise.state).toBe 'REJECTED'
     done()
-  ), 5
+  ), 50
