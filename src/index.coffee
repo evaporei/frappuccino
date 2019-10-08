@@ -1,3 +1,5 @@
+asap = require 'asap'
+
 PENDING = 'PENDING'
 FULFILLED = 'FULFILLED'
 REJECTED = 'REJECTED'
@@ -33,7 +35,7 @@ class Promise
     @handle callbacks for callbacks in @queue
 
   handleResolved: ({ promise, onFulfilled, onRejected }) ->
-    setImmediate =>
+    asap =>
       cb = (if @state is FULFILLED then onFulfilled else onRejected)
 
       if typeof cb isnt 'function'

@@ -30,5 +30,8 @@
     "coffeescript": "^2.4.1",
     "jest": "^24.9.0",
     "jest-preset-coffeescript": "^1.1.1"
+  },
+  "dependencies": {
+    "asap": "^2.0.6"
   }
 }
