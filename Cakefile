@@ -23,6 +23,7 @@ printDescriptionAndCommand = (taskObj) ->
 setupTasks = (taskObj) ->
   task taskObj.name, taskObj.description, ->
     printDescriptionAndCommand taskObj
-    spawn taskObj.command, taskObj.args, stdio: 'inherit'
+    subProcess = spawn taskObj.command, taskObj.args, stdio: 'inherit'
+    subProcess.on 'exit', process.exit
 
 setupTasks obj for name, obj of tasks
