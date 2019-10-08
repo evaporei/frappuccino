@@ -3,7 +3,7 @@ Promise = require '../src/'
 value = 'wow, so refreshing!'
 reason = 'too expensive for what I am getting :/'
 
-test 'when a promise is fulfilled it should not be rejected with another value', ->
+test 'when a promise is fulfilled it should not be rejected with another value', (done) ->
   onFulfilled = jest.fn()
   onRejected = jest.fn()
 
@@ -13,12 +13,15 @@ test 'when a promise is fulfilled it should not be rejected with another value',
 
   promise.then onFulfilled, onRejected
 
-  expect(onFulfilled.mock.calls.length).toBe 1
-  expect(onFulfilled.mock.calls[0][0]).toBe value
-  expect(onRejected.mock.calls.length).toBe 0
-  expect(promise.state).toBe 'FULFILLED'
+  setTimeout (->
+    expect(onFulfilled.mock.calls.length).toBe 1
+    expect(onFulfilled.mock.calls[0][0]).toBe value
+    expect(onRejected.mock.calls.length).toBe 0
+    expect(promise.state).toBe 'FULFILLED'
+    done()
+  ), 5
 
-test 'when a promise is rejected it should not be fulfilled with another value', ->
+test 'when a promise is rejected it should not be fulfilled with another value', (done) ->
   onFulfilled = jest.fn()
   onRejected = jest.fn()
 
@@ -27,7 +30,10 @@ test 'when a promise is rejected it should not be fulfilled with another value',
     fulfill value
   promise.then onFulfilled, onRejected
 
-  expect(onRejected.mock.calls.length).toBe 1
-  expect(onRejected.mock.calls[0][0]).toBe reason
-  expect(onFulfilled.mock.calls.length).toBe 0
-  expect(promise.state).toBe 'REJECTED'
+  setTimeout (->
+    expect(onRejected.mock.calls.length).toBe 1
+    expect(onRejected.mock.calls[0][0]).toBe reason
+    expect(onFulfilled.mock.calls.length).toBe 0
+    expect(promise.state).toBe 'REJECTED'
+    done()
+  ), 5
