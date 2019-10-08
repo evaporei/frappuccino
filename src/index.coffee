@@ -24,6 +24,7 @@ class Promise
       @reject error
 
   fulfill: (value) =>
+    return @reject new TypeError if value is @
     @state = FULFILLED
     @value = value
     @finale()
