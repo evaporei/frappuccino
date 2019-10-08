@@ -41,10 +41,15 @@ class Promise
       promise.reject error
 
   handle: (data) ->
-    if @state is PENDING
-      @queue.push data
+    promise = @
+
+    while promise.value instanceof Promise
+      promise = promise.value
+
+    if promise.state is PENDING
+      promise.queue.push data
     else
-      @handleResolved data
+      promise.handleResolved data
 
   then: (onFulfilled, onRejected) ->
     promise = new Promise ->
