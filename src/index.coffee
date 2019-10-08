@@ -30,7 +30,7 @@ class Promise
     @finale()
 
   finale: ->
-    @handleResolved callbacks for callbacks in @queue
+    @handle callbacks for callbacks in @queue
 
   handleResolved: ({ promise, onFulfilled, onRejected }) ->
     cb = (if @state is FULFILLED then onFulfilled else onRejected)
@@ -40,14 +40,16 @@ class Promise
     catch error
       promise.reject error
 
-  then: (onFulfilled, onRejected) ->
-    promise = new Promise ->
-    data = { promise, onFulfilled, onRejected }
-
+  handle: (data) ->
     if @state is PENDING
       @queue.push data
     else
       @handleResolved data
+
+  then: (onFulfilled, onRejected) ->
+    promise = new Promise ->
+
+    @handle { promise, onFulfilled, onRejected }
 
     promise
 
