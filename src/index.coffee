@@ -11,22 +11,24 @@ class Promise
     @queue = []
     @doResolve executor
 
+  wrapCb: (cb) ->
+    (value) =>
+      return if @called
+      @called = true
+      cb(value)
+
   doResolve: (executor) ->
     try
-      executor @fulfill, @reject
+      executor (@wrapCb @fulfill), (@wrapCb @reject)
     catch error
       @reject error
 
   fulfill: (value) =>
-    return if @called
-    @called = true
     @state = FULFILLED
     @value = value
     @finale()
 
   reject: (reason) =>
-    return if @called
-    @called = true
     @state = REJECTED
     @value = reason
     @finale()
