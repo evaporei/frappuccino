@@ -67,3 +67,7 @@ Then you will be able to run the linter by:
 ```
 npm run lint
 ```
+
+## Notes
+
+This project is heavly inspired by [this](https://mauriciopoppe.com/notes/computer-science/computation/promises/).
