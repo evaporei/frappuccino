@@ -142,3 +142,9 @@ npm run lint
 ## Notes
 
 This project is heavly inspired by [this](https://mauriciopoppe.com/notes/computer-science/computation/promises/).
+
+## License
+>You can check out the full license [here](https://github.com/otaviopace/frappuccino/blob/master/LICENSE)
+
+This project is licensed under the terms of the **WTFPL** license.
+You just DO WHAT THE FUCK YOU WANT TO.
