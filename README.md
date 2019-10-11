@@ -53,3 +53,17 @@ Then you will be able to run the tests by:
 ```
 npm test
 ```
+
+## How to run the linter
+
+Clone the repository, and run:
+
+```
+npm install
+```
+
+Then you will be able to run the linter by:
+
+```
+npm run lint
+```
