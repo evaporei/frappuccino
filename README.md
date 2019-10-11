@@ -1,3 +1,3 @@
 # frappuccino
 
-> Promise library with ice, coffee and sugar
+> Promise library with coffee, ice and sugar
