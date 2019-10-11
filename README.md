@@ -19,3 +19,23 @@ new Promise (resolve, reject) ->
 ```
 
 So I wanted to understand how JavaScript Promises work, and also I wanted to drink something refreshing. That's how `frappuccino` came to live!
+
+## How to install and use it
+
+To use the library, just use:
+
+```
+npm install --save frappuccino
+```
+
+And import it on your code:
+
+```coffeescript
+Promise = require 'frappuccino'
+```
+
+You can do it on JavaScript too :wink:
+
+```javascript
+const Promise = require('frappuccino')
+```
