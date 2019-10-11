@@ -11,6 +11,11 @@ tasks =
     description: 'Run test files on /tests folder'
     command: 'jest'
     args: []
+  lint:
+    name: 'lint'
+    description: 'Run linter of src and tests folder'
+    command: 'coffeelint'
+    args: ['src', 'tests']
 
 beautifyCommand = (command) ->
   '\n> ' + command

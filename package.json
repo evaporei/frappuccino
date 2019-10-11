@@ -6,7 +6,8 @@
   "scripts": {
     "build": "cake build",
     "test": "cake test",
-    "test:watch": "jest --watchAll"
+    "test:watch": "jest --watchAll",
+    "lint": "cake lint"
   },
   "repository": {
     "type": "git",
@@ -27,6 +28,7 @@
   },
   "homepage": "https://github.com/otaviopace/frappuccino#readme",
   "devDependencies": {
+    "coffeelint": "^2.1.0",
     "coffeescript": "^2.4.1",
     "jest": "^24.9.0",
     "jest-preset-coffeescript": "^1.1.1"
