@@ -1,7 +1,7 @@
 {
   "name": "frappuccino",
   "version": "1.0.0",
-  "description": "Promise library with coffee, ice and sugar",
+  "description": "Promise library with coffee, ice and sugar!",
   "main": "lib/index.js",
   "scripts": {
     "build": "cake build",
