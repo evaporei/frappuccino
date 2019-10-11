@@ -111,6 +111,24 @@ promise = new Promise (resolve, reject) ->
   throw new Error 'bad things happen'
 ```
 
+## How to build the code
+
+Since the code is in `CoffeeScript`, and there is no interpreter for it, as far as I know, I compile it to `JavaScript` so that it can be used.
+
+To build you will need to clone the repository, install the dependencies:
+
+```
+npm install
+```
+
+And finally just run:
+
+```
+npm run build
+```
+
+The code will be on the `lib` folder.
+
 ## How to run the tests
 
 Clone the repository, and run:
