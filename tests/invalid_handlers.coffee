@@ -8,11 +8,11 @@ test 'works with invalid handlers (fulfill)', (done) ->
   q = p.then null
   q.then(f1)
 
-  setTimeout (->
+  setTimeout ->
     expect(f1.mock.calls.length).toBe 1
     expect(f1.mock.calls[0][0]).toBe value
     done()
-  ), 50
+  , 50
 
 test 'works with invalid handlers (reject)', (done) ->
   reason = 'horrorppuccino'
@@ -22,8 +22,8 @@ test 'works with invalid handlers (reject)', (done) ->
   q = p.then null, null
   q.then(null, r1)
 
-  setTimeout (->
+  setTimeout ->
     expect(r1.mock.calls.length).toBe 1
     expect(r1.mock.calls[0][0]).toBe reason
     done()
-  ), 50
+  , 50

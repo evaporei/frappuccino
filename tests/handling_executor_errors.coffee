@@ -7,9 +7,9 @@ test 'when the executor fails, the promise should transition to the REJECTED sta
     throw reason
   promise.then null, onRejected
 
-  setTimeout (->
+  setTimeout ->
     expect(onRejected.mock.calls.length).toBe 1
     expect(onRejected.mock.calls[0][0]).toBe reason
     expect(promise.state).toBe 'REJECTED'
     done()
-  ), 50
+  , 50

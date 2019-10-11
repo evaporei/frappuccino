@@ -11,8 +11,8 @@ test 'should work with thenables', (done) ->
     .then -> thenable
     .then f1
 
-  setTimeout ( ->
+  setTimeout ->
     expect(f1.mock.calls.length).toBe 1
     expect(f1.mock.calls[0][0]).toBe value
     done()
-  ), 50
+  , 50

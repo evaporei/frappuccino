@@ -11,9 +11,9 @@ test 'rejects with a resolved promise', (done) ->
 
   expect(r1.mock.calls.length).toBe 0
 
-  setTimeout ( ->
+  setTimeout ->
     expect(r1.mock.calls.length).toBe 1
     expect(r1.mock.calls[0][0]).toBe reason
     done()
-  ), 50
+  , 50
 

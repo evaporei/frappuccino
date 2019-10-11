@@ -11,11 +11,11 @@ test 'should call the onFulfilled method when a promise is in a FULFILLED state'
     fulfill value
   promise.then onFulfilled
 
-  setTimeout (->
+  setTimeout ->
     expect(onFulfilled.mock.calls.length).toBe 1
     expect(onFulfilled.mock.calls[0][0]).toBe value
     done()
-  ), 50
+  , 50
 
 test 'should call the onRejected method when a promise is in a REJECTED state', (done) ->
   reason = 'uhhh, why do I keep ordering frappuccinos'
@@ -24,8 +24,8 @@ test 'should call the onRejected method when a promise is in a REJECTED state', 
     reject reason
   promise.then null, onRejected
 
-  setTimeout (->
+  setTimeout ->
     expect(onRejected.mock.calls.length).toBe 1
     expect(onRejected.mock.calls[0][0]).toBe reason
     done()
-  ), 50
+  , 50

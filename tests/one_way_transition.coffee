@@ -13,13 +13,13 @@ test 'when a promise is fulfilled it should not be rejected with another value',
 
   promise.then onFulfilled, onRejected
 
-  setTimeout (->
+  setTimeout ->
     expect(onFulfilled.mock.calls.length).toBe 1
     expect(onFulfilled.mock.calls[0][0]).toBe value
     expect(onRejected.mock.calls.length).toBe 0
     expect(promise.state).toBe 'FULFILLED'
     done()
-  ), 50
+  , 50
 
 test 'when a promise is rejected it should not be fulfilled with another value', (done) ->
   onFulfilled = jest.fn()
@@ -30,10 +30,10 @@ test 'when a promise is rejected it should not be fulfilled with another value',
     fulfill value
   promise.then onFulfilled, onRejected
 
-  setTimeout (->
+  setTimeout ->
     expect(onRejected.mock.calls.length).toBe 1
     expect(onRejected.mock.calls[0][0]).toBe reason
     expect(onFulfilled.mock.calls.length).toBe 0
     expect(promise.state).toBe 'REJECTED'
     done()
-  ), 50
+  , 50
