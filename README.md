@@ -39,3 +39,17 @@ You can do it on JavaScript too :wink:
 ```javascript
 const Promise = require('frappuccino')
 ```
+
+## How to run the tests
+
+Clone the repository, and run:
+
+```
+npm install
+```
+
+Then you will be able to run the tests by:
+
+```
+npm test
+```
